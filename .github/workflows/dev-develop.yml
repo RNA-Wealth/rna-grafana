@@ -27,10 +27,12 @@ jobs:
         with:
           config_file: ./config.ovpn
           username: ${{ secrets.DEV_OPENVPN_USER }}
-          password: ${{ secrets.DEV_OPENVPN_PASSWORD }}
+          password: ${{ secrets.DEV_OPENVPN_PASSWORD }}JI3U,3G4
       - name: deploy to cluster
+        uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.DEV_KUBE_CONFIG_BASE64 }}
-        run: |
-            kubectl delete -f grafana.yml
-            kubectl apply -f grafana.yml
+        with:
+          args: |
+              kubectl delete -f grafana.yml
+              kubectl apply -f grafana.yml
