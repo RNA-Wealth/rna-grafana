@@ -34,5 +34,5 @@ jobs:
           KUBE_CONFIG_DATA: ${{ secrets.DEV_KUBE_CONFIG_BASE64 }}
         with:
           args: |
-              kubectl delete -f grafana.yml
-              kubectl apply -f grafana.yml
+              delete -f grafana.yml
+              apply -f grafana.yml
