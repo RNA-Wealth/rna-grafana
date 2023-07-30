@@ -27,7 +27,7 @@ jobs:
         with:
           config_file: ./config.ovpn
           username: ${{ secrets.DEV_OPENVPN_USER }}
-          password: ${{ secrets.DEV_OPENVPN_PASSWORD }}JI3U,3G4
+          password: ${{ secrets.DEV_OPENVPN_PASSWORD }}
       - name: deploy to cluster
         uses: actions-hub/kubectl@master
         env:
