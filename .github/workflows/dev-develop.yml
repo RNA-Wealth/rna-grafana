@@ -29,10 +29,10 @@ jobs:
           username: ${{ secrets.DEV_OPENVPN_USER }}
           password: ${{ secrets.DEV_OPENVPN_PASSWORD }}
       - name: deploy to cluster
-        uses: actions-hub/kubectl@master
+        uses: wahyd4/kubectl-helm-action@master
         env:
           KUBE_CONFIG_DATA: ${{ secrets.DEV_KUBE_CONFIG_BASE64 }}
         with:
           args: |
-              delete -f grafana.yml
-              apply -f grafana.yml
+              kubectl delete -f grafana.yml
+              kubectl apply -f grafana.yml
